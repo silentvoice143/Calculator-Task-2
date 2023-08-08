@@ -50,35 +50,35 @@ export default function Calculator() {
   };
 
   const trigo = (val) => {
-    var pi;
+    let pi;
     console.log(val);
     if (val === "sin") {
       pi = input * (Math.PI / 180);
-      pi = Math.sin(pi);
-      pi *= 10;
-      pi = Math.round(pi);
-      pi = pi / 10;
+      pi = Math.sin(pi).toFixed(7);
+      // pi *= 10;
+      // pi = Math.round(pi);
+      // pi = pi / 10;
       SetResult(pi);
     } else if (val === "cos") {
       pi = input * (Math.PI / 180);
-      pi = Math.cos(pi);
-      pi *= 10;
-      pi = Math.round(pi);
-      pi = pi / 10;
+      pi = Math.cos(pi).toFixed(7);
+      // pi *= 10;
+      // pi = Math.round(pi);
+      // pi = pi / 10;
       SetResult(pi);
     } else if (val === "tan") {
       pi = input * (Math.PI / 180);
-      pi = Math.tan(pi);
-      pi *= 10;
-      pi = Math.round(pi);
-      pi = pi / 10;
+      pi = Math.tan(pi).toFixed(7);
+      // pi *= 10;
+      // pi = Math.round(pi);
+      // pi = pi / 10;
       SetResult(pi);
     } else if (val === "sec") {
       pi = input * (Math.PI / 180);
-      pi = Math.cos(pi);
-      pi *= 10;
-      pi = Math.round(pi);
-      pi = pi / 10;
+      pi = Math.cos(pi).toFixed(7);
+      // pi *= 10;
+      // pi = Math.round(pi);
+      // pi = pi / 10;
       if (pi !== 0) {
         SetResult(1 / pi);
       } else {
@@ -86,10 +86,10 @@ export default function Calculator() {
       }
     } else if (val === "cosec") {
       pi = input * (Math.PI / 180);
-      pi = Math.sin(pi);
-      pi *= 10;
-      pi = Math.round(pi);
-      pi = pi / 10;
+      pi = Math.sin(pi).toFixed(7);
+      // pi *= 10;
+      // pi = Math.round(pi);
+      // pi = pi / 10;
       if (pi !== 0) {
         SetResult(1 / pi);
       } else {
@@ -97,15 +97,32 @@ export default function Calculator() {
       }
     } else if (val === "cot") {
       pi = input * (Math.PI / 180);
-      pi = Math.tan(pi);
-      pi *= 10;
-      pi = Math.round(pi);
-      pi = pi / 10;
+      pi = Math.tan(pi).toFixed(7);
+      // pi *= 10;
+      // pi = Math.round(pi);
+      // pi = pi / 10;
       if (pi !== 0) {
         SetResult(1 / pi);
       } else {
         SetResult("infinity");
       }
+    }
+  };
+
+  const inversetrigo = (val) => {
+    // let r;
+    if (val === "asin") {
+      SetResult("rad= " + Math.asin(input).toFixed(7));
+    } else if (val === "acos") {
+      SetResult("rad= " + Math.acos(input).toFixed(7));
+    } else if (val === "atan") {
+      SetResult("rad= " + Math.atan(input).toFixed(7));
+    } else if (val === "acosec") {
+      SetResult("rad= " + Math.asin(1 / input).toFixed(7));
+    } else if (val === "asec") {
+      SetResult("rad= <br>" + Math.acos(1 / input).toFixed(7));
+    } else if (val === "acot") {
+      SetResult("rad= " + Math.atan(1 / input).toFixed(7));
     }
   };
 
@@ -380,7 +397,7 @@ export default function Calculator() {
                 tan
               </button>
               <button
-                className="key"
+                className="key cosec"
                 value="cosec"
                 onClick={(e) => {
                   trigo(e.target.value);
@@ -413,22 +430,58 @@ export default function Calculator() {
                 display: istrigo ? "flex" : "none",
               }}
             >
-              <button className="key">
+              <button
+                className="key"
+                value="asin"
+                onClick={(e) => {
+                  inversetrigo(e.target.value);
+                }}
+              >
                 sin <sup>-1</sup>
               </button>
-              <button className="key">
+              <button
+                className="key"
+                value="acos"
+                onClick={(e) => {
+                  inversetrigo(e.target.value);
+                }}
+              >
                 cos<sup>-1</sup>
               </button>
-              <button className="key">
+              <button
+                className="key"
+                value="atan"
+                onClick={(e) => {
+                  inversetrigo(e.target.value);
+                }}
+              >
                 tan<sup>-1</sup>
               </button>
-              <button className="key">
+              <button
+                className="key cosec"
+                value="acosec"
+                onClick={(e) => {
+                  inversetrigo(e.target.value);
+                }}
+              >
                 cosec<sup>-1</sup>
               </button>
-              <button className="key">
+              <button
+                className="key"
+                value="asec"
+                onClick={(e) => {
+                  inversetrigo(e.target.value);
+                }}
+              >
                 sec<sup>-1</sup>
               </button>
-              <button className="key">
+              <button
+                className="key"
+                value="acot"
+                onClick={(e) => {
+                  inversetrigo(e.target.value);
+                }}
+              >
                 cot<sup>-1</sup>
               </button>
             </div>
