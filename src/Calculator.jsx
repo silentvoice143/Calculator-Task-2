@@ -82,7 +82,7 @@ export default function Calculator() {
       if (pi !== 0) {
         SetResult(1 / pi);
       } else {
-        SetResult("infinity");
+        SetResult("undefined");
       }
     } else if (val === "cosec") {
       pi = input * (Math.PI / 180);
@@ -93,7 +93,7 @@ export default function Calculator() {
       if (pi !== 0) {
         SetResult(1 / pi);
       } else {
-        SetResult("infinity");
+        SetResult("undefined");
       }
     } else if (val === "cot") {
       pi = input * (Math.PI / 180);
@@ -104,7 +104,7 @@ export default function Calculator() {
       if (pi !== 0) {
         SetResult(1 / pi);
       } else {
-        SetResult("infinity");
+        SetResult("undefined");
       }
     }
   };
